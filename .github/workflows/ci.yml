@@ -1,4 +1,4 @@
-name: CI - Web Scraping Totto
+name: CI/CD - Web Scraping Totto
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   pruebas:
-    name: Ejecutar pruebas automatizadas
+    name: Integracion continua - CI
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +22,32 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Verificar versión de Python
+      - name: Verificar Python
         run: python --version
 
       - name: Ejecutar pruebas
         run: python -m unittest discover -s tests -v
+
+  entrega:
+    name: Entrega continua - CD
+    needs: pruebas
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar artefacto del proyecto
+        run: |
+          mkdir -p entrega
+          cp notebooks/EA1_Proyecto_Totto.ipynb entrega/
+          cp docs/bitacora.md entrega/
+          cp LÉAME.md entrega/README.md
+
+      - name: Publicar artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: proyecto-web-scraping-totto
+          path: entrega/
+          retention-days: 30
