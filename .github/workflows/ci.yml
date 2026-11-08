@@ -1,0 +1,29 @@
+name: CI - Web Scraping Totto
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pruebas:
+    name: Ejecutar pruebas automatizadas
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verificar versión de Python
+        run: python --version
+
+      - name: Ejecutar pruebas
+        run: python -m unittest discover -s tests -v
