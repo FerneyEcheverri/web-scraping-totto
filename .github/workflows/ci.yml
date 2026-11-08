@@ -43,7 +43,6 @@ jobs:
           mkdir -p entrega
           cp notebooks/EA1_Proyecto_Totto.ipynb entrega/
           cp docs/bitacora.md entrega/
-          cp LÉAME.md entrega/README.md
 
       - name: Publicar artefacto
         uses: actions/upload-artifact@v4
