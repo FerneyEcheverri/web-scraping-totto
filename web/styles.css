@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202938;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+.encabezado {
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navegacion {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #123b64;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #c52835;
+    font-size: 13px;
+}
+
+.enlaces {
+    display: flex;
+    gap: 25px;
+}
+
+.enlaces a {
+    color: #303b4a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.enlaces a:hover {
+    color: #c52835;
+}
+
+.portada {
+    background: linear-gradient(120deg, #092d50, #175b83);
+    color: white;
+    padding: 100px 24px;
+}
+
+.contenido-portada {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.etiqueta {
+    color: #c52835;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.portada .etiqueta {
+    color: #f4b8bd;
+}
+
+h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.15;
+    max-width: 750px;
+    margin-bottom: 22px;
+}
+
+.portada p:not(.etiqueta) {
+    max-width: 650px;
+    color: #e2eaf2;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.boton {
+    display: inline-block;
+    background: #c52835;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: #a91d29;
+}
+
+.seccion {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 24px;
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+    color: #123b64;
+}
+
+.descripcion {
+    max-width: 800px;
+    color: #657184;
+}
+
+.catalogo {
+    background: #f5f7fa;
+    max-width: none;
+    padding-left: max(24px, calc((100% - 1052px) / 2));
+    padding-right: max(24px, calc((100% - 1052px) / 2));
+}
+
+.productos {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.mensaje {
+    grid-column: 1 / -1;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    color: #657184;
+}
+
+.producto {
+    background: white;
+    border-radius: 9px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.producto h3 {
+    color: #123b64;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    color: #657184;
+    margin: 5px 0;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.tarjeta {
+    padding: 24px;
+    border: 1px solid #e3e8ee;
+    border-radius: 9px;
+}
+
+.tarjeta h3 {
+    color: #c52835;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: #657184;
+}
+
+footer {
+    background: #092d50;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 600px) {
+    .navegacion {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .enlaces {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .portada {
+        padding: 70px 24px;
+    }
+}
+
+
+/* Presentación de las tarjetas del catálogo */
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+}
+
+.categoria {
+    align-self: flex-start;
+    background: #e8f0f7;
+    color: #123b64;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.producto .descripcion-producto {
+    color: #657184;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.datos-producto {
+    border-top: 1px solid #e3e8ee;
+    padding-top: 12px;
+    margin-top: auto;
+}
+
+.datos-producto p {
+    font-size: 14px;
+    margin: 6px 0;
+}

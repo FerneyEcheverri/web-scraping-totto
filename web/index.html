@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto académico de Web Scraping y análisis de morrales ejecutivos de Totto Colombia.">
+    <title>Totto | Análisis de Morrales Ejecutivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <nav class="navegacion">
+            <a href="#" class="logo">TOTTO <span>ANÁLISIS</span></a>
+            <div class="enlaces">
+                <a href="#proyecto">Proyecto</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#tecnologias">Tecnologías</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portada">
+            <div class="contenido-portada">
+                <p class="etiqueta">PROYECTO ACADÉMICO · WEB SCRAPING</p>
+                <h1>Conociendo el catálogo de morrales ejecutivos</h1>
+                <p>
+                    Un proyecto de extracción y análisis de información pública
+                    de productos de Totto Colombia, complementado con prácticas
+                    de automatización DevOps.
+                </p>
+                <a href="#catalogo" class="boton">Explorar catálogo</a>
+            </div>
+        </section>
+
+        <section id="proyecto" class="seccion">
+            <p class="etiqueta">SOBRE EL PROYECTO</p>
+            <h2>De los datos al análisis</h2>
+            <p class="descripcion">
+                Este proyecto utiliza técnicas de Web Scraping con Python para
+                recopilar información pública del catálogo de Totto Colombia.
+                Los datos se organizan y procesan para facilitar el análisis
+                comparativo de los morrales ejecutivos.
+            </p>
+        </section>
+
+        <section id="catalogo" class="seccion catalogo">
+            <p class="etiqueta">PRODUCTOS</p>
+            <h2>Morrales ejecutivos</h2>
+            <p class="descripcion">
+                Consulta los productos obtenidos durante el proceso de extracción.
+            </p>
+            <div id="productos" class="productos">
+                <p class="mensaje">Cargando información del catálogo...</p>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="seccion tecnologias">
+            <p class="etiqueta">HERRAMIENTAS UTILIZADAS</p>
+            <h2>Tecnologías del proyecto</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <h3>Python</h3>
+                    <p>Extracción, limpieza y procesamiento de datos.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Git y GitHub</h3>
+                    <p>Control de versiones y almacenamiento del proyecto.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>GitHub Actions</h3>
+                    <p>Automatización de pruebas y despliegue de la aplicación.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>HTML, CSS y JavaScript</h3>
+                    <p>Construcción de la interfaz web.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto académico de Web Scraping y DevOps · Totto Colombia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

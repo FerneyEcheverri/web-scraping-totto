@@ -8,10 +8,16 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   pruebas:
     name: Integracion continua - CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
 
     steps:
       - name: Descargar repositorio
@@ -25,14 +31,24 @@ jobs:
       - name: Verificar Python
         run: python --version
 
-      - name: Ejecutar pruebas
+      - name: Ejecutar pruebas automatizadas
         run: python -m unittest discover -s tests -v
 
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar archivos de la pagina web
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/
+
   entrega:
-    name: Entrega continua - CD
+    name: Entrega de artefacto academico
     needs: pruebas
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Descargar repositorio
@@ -50,3 +66,21 @@ jobs:
           name: proyecto-web-scraping-totto
           path: entrega/
           retention-days: 30
+
+  despliegue:
+    name: Despliegue de aplicacion web - CD
+    needs: pruebas
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacion.outputs.page_url }}
+
+    steps:
+      - name: Publicar aplicacion en GitHub Pages
+        id: publicacion
+        uses: actions/deploy-pages@v4
